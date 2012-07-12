@@ -19,6 +19,15 @@ namespace Duncanimation
         float timer = 0;
         bool playing = true;
 
+        public bool FinishedPlaying
+        {
+            get
+            {
+                return (currentFrame == currentAnimation.StartingFrame + currentAnimation.NumberOfFrames &&
+                    currentAnimation.Looping == false);
+            }
+        }
+
         public Animator(Texture2D spriteSheet, int rows, int columns)
         {
             this.spriteSheet = spriteSheet;
@@ -42,6 +51,18 @@ namespace Duncanimation
                     timer = 0;
                     currentFrame++;
                 }
+                if (currentFrame >= currentAnimation.StartingFrame + currentAnimation.NumberOfFrames)
+                {
+                    if (currentAnimation.Looping)
+                    {
+                        currentFrame = currentAnimation.StartingFrame;
+                    }
+                    else
+                    {
+                        currentFrame = currentAnimation.StartingFrame + currentAnimation.NumberOfFrames;
+                        Stop();
+                    }
+                }
             }
         }
 
@@ -55,13 +76,21 @@ namespace Duncanimation
             playing = true;
         }
 
-        public void Draw(SpriteBatch sb)
+        public void Play(string anim)
+        {
+            currentAnimation = animations[anim];
+            Play();
+        }
+
+        public void Draw(SpriteBatch sb, Rectangle dest, Color c)
         {
             int x = currentFrame % columns;
             int y = currentFrame / columns;
             int width = spriteSheet.Width / columns;
             int height = spriteSheet.Height / rows;
             Rectangle source = new Rectangle(x,y,width,height);
+
+            sb.Draw(spriteSheet, dest, source, c);
         }
     }
 }
