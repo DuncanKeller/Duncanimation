@@ -1,0 +1,11 @@
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Duncanimation.dll
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Duncanimation.pdb
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Microsoft.Xna.Framework.dll
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Microsoft.Xna.Framework.Graphics.dll
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Microsoft.Xna.Framework.xml
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Microsoft.Xna.Framework.Graphics.xml
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\obj\Debug\Duncanimation.dll
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\obj\Debug\Duncanimation.pdb
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Animation.cs
+c:\users\duncan\documents\visual studio 2010\Projects\Duncanimation\Duncanimation\bin\Debug\Animator.cs
+C:\Users\Duncan\Documents\Visual Studio 2010\Projects\Duncanimation\Duncanimation\obj\Debug\Duncanimation.csprojResolveAssemblyReference.cache
