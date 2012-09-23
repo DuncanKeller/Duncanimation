@@ -31,10 +31,10 @@
       <summary>Gets or sets the fog enable flag.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.AlphaTestEffect.FogEnd">
-      <summary>Gets or sets the maximum z value for fog.</summary>
+      <summary>Gets or sets the maximum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.AlphaTestEffect.FogStart">
-      <summary>Gets or sets the minimum z value for fog.</summary>
+      <summary>Gets or sets the minimum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.AlphaTestEffect.OnApply">
       <summary>Computes derived parameter values immediately before applying the effect using a lazy architecture.</summary>
@@ -102,10 +102,10 @@
       <summary>Enables fog.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.BasicEffect.FogEnd">
-      <summary>Gets or sets the maximum z value for fog.</summary>
+      <summary>Gets or sets the maximum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.BasicEffect.FogStart">
-      <summary>Gets or sets the minimum z value for fog.</summary>
+      <summary>Gets or sets the minimum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.BasicEffect.LightingEnabled">
       <summary>Enables lighting for this effect.</summary>
@@ -142,63 +142,27 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.Blend">
       <summary>Defines color blending factors.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.BlendFactor">
-      <summary>Each component of the color is multiplied by a constant set in BlendFactor.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.DestinationAlpha">
-      <summary>Each component of the color is multiplied by the alpha value of the destination. This can be represented as (Ad, Ad, Ad, Ad), where Ad is the destination alpha value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.DestinationColor">
-      <summary>Each component color is multiplied by the destination color. This can be represented as (Rd, Gd, Bd, Ad), where R, G, B, and A respectively stand for red, green, blue, and alpha destination values.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseBlendFactor">
-      <summary>Each component of the color is multiplied by the inverse of a constant set in BlendFactor.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseDestinationAlpha">
-      <summary>Each component of the color is multiplied by the inverse of the alpha value of the destination. This can be represented as (1 − Ad, 1 − Ad, 1 − Ad, 1 − Ad), where Ad is the alpha destination value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseDestinationColor">
-      <summary>Each component of the color is multiplied by the inverse of the destination color. This can be represented as (1 − Rd, 1 − Gd, 1 − Bd, 1 − Ad), where Rd, Gd, Bd, and Ad respectively stand for the red, green, blue, and alpha destination values.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseSourceAlpha">
-      <summary>Each component of the color is multiplied by the inverse of the alpha value of the source. This can be represented as (1 − As, 1 − As, 1 − As, 1 − As), where As is the alpha destination value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseSourceColor">
-      <summary>Each component of the color is multiplied by the inverse of the source color. This can be represented as (1 − Rs, 1 − Gs, 1 − Bs, 1 − As) where R, G, B, and A respectively stand for the red, green, blue, and alpha destination values.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.One">
-      <summary>Each component of the color is multiplied by (1, 1, 1, 1).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha">
-      <summary>Each component of the color is multiplied by the alpha value of the source. This can be represented as (As, As, As, As), where As is the alpha source value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.SourceAlphaSaturation">
-      <summary>Each component of the color is multiplied by either the alpha of the source color, or the inverse of the alpha of the source color, whichever is greater. This can be represented as (f, f, f, 1), where f = min(A, 1 − Ad).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.SourceColor">
-      <summary>Each component of the color is multiplied by the source color. This can be represented as (Rs, Gs, Bs, As), where R, G, B, and A respectively stand for the red, green, blue, and alpha source values.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.Blend.Zero">
-      <summary>Each component of the color is multiplied by (0, 0, 0, 0).</summary>
+      <param name="Zero">Each component of the color is multiplied by (0, 0, 0, 0).</param>
+      <param name="One">Each component of the color is multiplied by (1, 1, 1, 1).</param>
+      <param name="SourceColor">Each component of the color is multiplied by the source color. This can be represented as (Rs, Gs, Bs, As), where R, G, B, and A respectively stand for the red, green, blue, and alpha source values.</param>
+      <param name="InverseSourceColor">Each component of the color is multiplied by the inverse of the source color. This can be represented as (1 − Rs, 1 − Gs, 1 − Bs, 1 − As) where R, G, B, and A respectively stand for the red, green, blue, and alpha destination values.</param>
+      <param name="SourceAlpha">Each component of the color is multiplied by the alpha value of the source. This can be represented as (As, As, As, As), where As is the alpha source value.</param>
+      <param name="InverseSourceAlpha">Each component of the color is multiplied by the inverse of the alpha value of the source. This can be represented as (1 − As, 1 − As, 1 − As, 1 − As), where As is the alpha destination value.</param>
+      <param name="DestinationAlpha">Each component of the color is multiplied by the alpha value of the destination. This can be represented as (Ad, Ad, Ad, Ad), where Ad is the destination alpha value.</param>
+      <param name="InverseDestinationAlpha">Each component of the color is multiplied by the inverse of the alpha value of the destination. This can be represented as (1 − Ad, 1 − Ad, 1 − Ad, 1 − Ad), where Ad is the alpha destination value.</param>
+      <param name="DestinationColor">Each component color is multiplied by the destination color. This can be represented as (Rd, Gd, Bd, Ad), where R, G, B, and A respectively stand for red, green, blue, and alpha destination values.</param>
+      <param name="InverseDestinationColor">Each component of the color is multiplied by the inverse of the destination color. This can be represented as (1 − Rd, 1 − Gd, 1 − Bd, 1 − Ad), where Rd, Gd, Bd, and Ad respectively stand for the red, green, blue, and alpha destination values.</param>
+      <param name="SourceAlphaSaturation">Each component of the color is multiplied by either the alpha of the source color, or the inverse of the alpha of the source color, whichever is greater. This can be represented as (f, f, f, 1), where f = min(A, 1 − Ad).</param>
+      <param name="BlendFactor">Each component of the color is multiplied by a constant set in BlendFactor.</param>
+      <param name="InverseBlendFactor">Each component of the color is multiplied by the inverse of a constant set in BlendFactor.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.BlendFunction">
       <summary>Defines how to combine a source color with the destination color already on the render target for color blending.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Add">
-      <summary>The result is the destination added to the source. Result = (Source Color * Source Blend) + (Destination Color * Destination Blend)</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Max">
-      <summary>The result is the maximum of the source and destination. Result = max( (Source Color * Source Blend), (Destination Color * Destination Blend) )</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Min">
-      <summary>The result is the minimum of the source and destination. Result = min( (Source Color * Source Blend), (Destination Color * Destination Blend) )</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.ReverseSubtract">
-      <summary>The result is the source subtracted from the destination. Result = (Destination Color * Destination Blend) − (Source Color * Source Blend)</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Subtract">
-      <summary>The result is the destination subtracted from the source. Result = (Source Color * Source Blend) − (Destination Color * Destination Blend)</summary>
+      <param name="Add">The result is the destination added to the source. Result = (Source Color * Source Blend) + (Destination Color * Destination Blend)</param>
+      <param name="Max">The result is the maximum of the source and destination. Result = max( (Source Color * Source Blend), (Destination Color * Destination Blend) )</param>
+      <param name="Min">The result is the minimum of the source and destination. Result = min( (Source Color * Source Blend), (Destination Color * Destination Blend) )</param>
+      <param name="ReverseSubtract">The result is the source subtracted from the destination. Result = (Destination Color * Destination Blend) − (Source Color * Source Blend)</param>
+      <param name="Subtract">The result is the destination subtracted from the source. Result = (Source Color * Source Blend) − (Destination Color * Destination Blend)</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.BlendState">
       <summary>Contains blend state for the device.</summary>
@@ -207,10 +171,10 @@
       <summary>Creates an instance of the BlendState class with default values, using additive color and alpha blending.</summary>
     </member>
     <member name="F:Microsoft.Xna.Framework.Graphics.BlendState.Additive">
-      <summary>A built-in state object with settings for additive blend that is adding the destination data to the source data without using alpha.</summary>
+      <summary>A built-in state object with settings for additive blend, that is adding the destination data to the source data without using alpha.</summary>
     </member>
     <member name="F:Microsoft.Xna.Framework.Graphics.BlendState.AlphaBlend">
-      <summary>A built-in state object with settings for alpha blend that is blending the source and destination data using alpha.</summary>
+      <summary>A built-in state object with settings for alpha blend, that is blending the source and destination data using alpha.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.BlendState.AlphaBlendFunction">
       <summary>Gets or sets the arithmetic operation when blending alpha values. The default is BlendFunction.Add.</summary>
@@ -247,133 +211,69 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.BlendState.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.BlendState.MultiSampleMask">
       <summary>Gets or sets a bitmask which defines which samples can be written during multisampling. The default is 0xffffffff.</summary>
     </member>
     <member name="F:Microsoft.Xna.Framework.Graphics.BlendState.NonPremultiplied">
-      <summary>A built-in state object with settings for blending with non-premultipled alpha that is blending source and destination data by using alpha while assuming the color data contains no alpha information.</summary>
+      <summary>A built-in state object with settings for blending with non-premultipled alpha, that is blending source and destination data using alpha while assuming the color data contains no alpha information.</summary>
     </member>
     <member name="F:Microsoft.Xna.Framework.Graphics.BlendState.Opaque">
-      <summary>A built-in state object with settings for opaque blend that is overwriting the source with the destination data.</summary>
+      <summary>A built-in state object with settings for opaque blend, that is overwriting the source with the destination data.</summary>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.BufferUsage">
       <summary>Specifies special usage of the buffer contents.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BufferUsage.None">
-      <summary>None</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.BufferUsage.WriteOnly">
-      <summary>Indicates that the application only writes to the vertex buffer. If specified, the driver chooses the best memory location for efficient writing and rendering. Attempts to read from a write-only vertex buffer fail.</summary>
+      <param name="None">None</param>
+      <param name="WriteOnly">Indicates that the application only writes to the vertex buffer. If specified, the driver chooses the best memory location for efficient writing and rendering. Attempts to read from a write-only vertex buffer fail.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.ClearOptions">
       <summary>Specifies the buffer to use when calling Clear.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ClearOptions.DepthBuffer">
-      <summary>A depth buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ClearOptions.Stencil">
-      <summary>A stencil buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ClearOptions.Target">
-      <summary>A render target.</summary>
+      <param name="DepthBuffer">A depth buffer.</param>
+      <param name="Stencil">A stencil buffer.</param>
+      <param name="Target">A render target.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.ColorWriteChannels">
       <summary>Defines the color channels that can be chosen for a per-channel write to a render target color buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.All">
-      <summary>All buffer channels.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Alpha">
-      <summary>Alpha channel of a buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Blue">
-      <summary>Blue channel of a buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green">
-      <summary>Green channel of a buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.None">
-      <summary>No channel selected.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red">
-      <summary>Red channel of a buffer.</summary>
+      <param name="All">All buffer channels.</param>
+      <param name="Alpha">Alpha channel of a buffer.</param>
+      <param name="Blue">Blue channel of a buffer.</param>
+      <param name="Green">Green channel of a buffer.</param>
+      <param name="None">No channel selected.</param>
+      <param name="Red">Red channel of a buffer.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.CompareFunction">
       <summary>Defines comparison functions that can be chosen for alpha, stencil, or depth-buffer tests.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Always">
-      <summary>Always pass the test.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Equal">
-      <summary>Accept the new pixel if its value is equal to the value of the current pixel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Greater">
-      <summary>Accept the new pixel if its value is greater than the value of the current pixel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.GreaterEqual">
-      <summary>Accept the new pixel if its value is greater than or equal to the value of the current pixel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Less">
-      <summary>Accept the new pixel if its value is less than the value of the current pixel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.LessEqual">
-      <summary>Accept the new pixel if its value is less than or equal to the value of the current pixel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Never">
-      <summary>Always fail the test.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.NotEqual">
-      <summary>Accept the new pixel if its value does not equal the value of the current pixel.</summary>
+      <param name="Always">Always pass the test.</param>
+      <param name="Equal">Accept the new pixel if its value is equal to the value of the current pixel.</param>
+      <param name="Greater">Accept the new pixel if its value is greater than the value of the current pixel.</param>
+      <param name="GreaterEqual">Accept the new pixel if its value is greater than or equal to the value of the current pixel.</param>
+      <param name="Less">Accept the new pixel if its value is less than the value of the current pixel.</param>
+      <param name="LessEqual">Accept the new pixel if its value is less than or equal to the value of the current pixel.</param>
+      <param name="Never">Always fail the test.</param>
+      <param name="NotEqual">Accept the new pixel if its value does not equal the value of the current pixel.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.CubeMapFace">
       <summary>Defines the faces of a cube map in the TextureCube class type.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.NegativeX">
-      <summary>Negative x-face of the cube map.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.NegativeY">
-      <summary>Negative y-face of the cube map.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.NegativeZ">
-      <summary>Negative z-face of the cube map.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.PositiveX">
-      <summary>Positive x-face of the cube map.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.PositiveY">
-      <summary>Positive y-face of the cube map.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.PositiveZ">
-      <summary>Positive z-face of the cube map.</summary>
+      <param name="NegativeX">Negative x-face of the cube map.</param>
+      <param name="NegativeY">Negative y-face of the cube map.</param>
+      <param name="NegativeZ">Negative z-face of the cube map.</param>
+      <param name="PositiveX">Positive x-face of the cube map.</param>
+      <param name="PositiveY">Positive y-face of the cube map.</param>
+      <param name="PositiveZ">Positive z-face of the cube map.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.CullMode">
       <summary>Defines winding orders that may be used to identify back faces for culling.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CullMode.CullClockwiseFace">
-      <summary>Cull back faces with clockwise vertices.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CullMode.CullCounterClockwiseFace">
-      <summary>Cull back faces with counterclockwise vertices.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.CullMode.None">
-      <summary>Do not cull back faces.</summary>
+      <param name="CullClockwiseFace">Cull back faces with clockwise vertices.</param>
+      <param name="CullCounterClockwiseFace">Cull back faces with counterclockwise vertices.</param>
+      <param name="None">Do not cull back faces.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.DepthFormat">
       <summary>Defines the format of data in a depth-stencil buffer. Reference page contains links to related conceptual articles.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.DepthFormat.Depth16">
-      <summary>A buffer that contains 16-bits of depth data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.DepthFormat.Depth24">
-      <summary>A buffer that contains 24-bits of depth data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.DepthFormat.Depth24Stencil8">
-      <summary>A 32 bit buffer that contains 24 bits of depth data and 8 bits of stencil data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.DepthFormat.None">
-      <summary>Do not create a depth buffer.</summary>
+      <param name="Depth16">A buffer that contains 16-bits of depth data.</param>
+      <param name="Depth24">A buffer that contains 24-bits of depth data.</param>
+      <param name="Depth24Stencil8">A 32 bit buffer that contains 24 bits of depth data and 8 bits of stencil data.</param>
+      <param name="None">Do not create a depth buffer.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.DepthStencilState">
       <summary>Contains depth-stencil state for the device.</summary>
@@ -410,7 +310,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.DepthStencilState.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="F:Microsoft.Xna.Framework.Graphics.DepthStencilState.None">
       <summary>A built-in state object with settings for not using a depth stencil buffer.</summary>
@@ -555,10 +455,10 @@
       <summary>Gets or sets the fog enable flag.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.DualTextureEffect.FogEnd">
-      <summary>Gets or sets the maximum z value for fog.</summary>
+      <summary>Gets or sets the maximum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.DualTextureEffect.FogStart">
-      <summary>Gets or sets the minimum z value for fog.</summary>
+      <summary>Gets or sets the minimum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.DualTextureEffect.OnApply">
       <summary>Computes derived parameter values immediately before applying the effect.</summary>
@@ -680,7 +580,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.Effect.Dispose(System.Boolean)">
       <summary>Releases the unmanaged resources used by the Effect and optionally releases the managed resources.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.Effect.OnApply">
       <summary>Applies the effect state just prior to rendering the effect.</summary>
@@ -953,21 +853,11 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.EffectParameterClass">
       <summary>Defines classes that can be used for effect parameters or shader constants.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterClass.Matrix">
-      <summary>Constant is a matrix.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterClass.Object">
-      <summary>Constant is either a texture, a shader, or a string.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterClass.Scalar">
-      <summary>Constant is a scalar.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterClass.Struct">
-      <summary>Constant is a structure.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterClass.Vector">
-      <summary>Constant is a vector.</summary>
+      <param name="Matrix">Constant is a matrix.</param>
+      <param name="Object">Constant is either a texture, a shader, or a string.</param>
+      <param name="Scalar">Constant is a scalar.</param>
+      <param name="Struct">Constant is a structure.</param>
+      <param name="Vector">Constant is a vector.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.EffectParameterCollection">
       <summary>Manipulates a collection of EffectParameter objects.</summary>
@@ -998,36 +888,16 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.EffectParameterType">
       <summary>Defines types that can be used for effect parameters or shader constants.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Bool">
-      <summary>Parameter is a Boolean. Any nonzero value passed in will be mapped to 1 (TRUE) before being written into the constant table; otherwise, the value will be set to 0 in the constant table.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Int32">
-      <summary>Parameter is an integer. Any floating-point values passed in will be rounded off (to zero decimal places) before being written into the constant table.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Single">
-      <summary>Parameter is a floating-point number.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.String">
-      <summary>Parameter is a string.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Texture">
-      <summary>Parameter is a texture.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Texture1D">
-      <summary>Parameter is a 1D texture.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Texture2D">
-      <summary>Parameter is a 2D texture.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Texture3D">
-      <summary>Parameter is a 3D texture.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.TextureCube">
-      <summary>Parameter is a cube texture.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.EffectParameterType.Void">
-      <summary>Parameter is a void pointer.</summary>
+      <param name="Bool">Parameter is a Boolean. Any nonzero value passed in will be mapped to 1 (TRUE) before being written into the constant table; otherwise, the value will be set to 0 in the constant table.</param>
+      <param name="Int32">Parameter is an integer. Any floating-point values passed in will be rounded off (to zero decimal places) before being written into the constant table.</param>
+      <param name="Single">Parameter is a floating-point number.</param>
+      <param name="String">Parameter is a string.</param>
+      <param name="Texture">Parameter is a texture.</param>
+      <param name="Texture1D">Parameter is a 1D texture.</param>
+      <param name="Texture2D">Parameter is a 2D texture.</param>
+      <param name="Texture3D">Parameter is a 3D texture.</param>
+      <param name="TextureCube">Parameter is a cube texture.</param>
+      <param name="Void">Parameter is a void pointer.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.EffectPass">
       <summary>Contains rendering state for drawing with an effect; an effect can contain one or more passes.</summary>
@@ -1153,10 +1023,10 @@
       <summary>Gets or sets the fog enable flag.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.EnvironmentMapEffect.FogEnd">
-      <summary>Gets or sets the maximum z value for fog.</summary>
+      <summary>Gets or sets the maximum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.EnvironmentMapEffect.FogStart">
-      <summary>Gets or sets the minimum z value for fog.</summary>
+      <summary>Gets or sets the minimum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.EnvironmentMapEffect.FresnelFactor">
       <summary>Gets or sets the Fresnel factor used for the environment map blending.</summary>
@@ -1181,12 +1051,8 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.FillMode">
       <summary>Describes options for filling the vertices and lines that define a primitive.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.FillMode.Solid">
-      <summary>Draw solid faces for each primitive.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.FillMode.WireFrame">
-      <summary>Draw lines connecting the vertices that define a primitive face.</summary>
+      <param name="Solid">Draw solid faces for each primitive.</param>
+      <param name="WireFrame">Draw lines connecting the vertices that define a primitive face.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsAdapter">
       <summary>Provides methods to retrieve and manipulate graphics adapters.</summary>
@@ -1319,7 +1185,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="E:Microsoft.Xna.Framework.Graphics.GraphicsDevice.Disposing">
       <summary>Occurs when Dispose is called or when this object is finalized and collected by the garbage collector of the Microsoft .NET common language runtime.  Reference page contains code sample.</summary>
@@ -1354,20 +1220,20 @@
       <summary>Renders indexed primitives from a 16-bit index buffer and other related input parameters.</summary>
       <param name="primitiveType">The primitive type.</param>
       <param name="vertexData">The vertex data.</param>
-      <param name="vertexOffset">Offset (in vertices) from the beginning of the vertex buffer to the first vertex to draw.</param>
+      <param name="vertexOffset">Offset (in bytes) from the beginning of the vertex buffer to the first vertex to draw.</param>
       <param name="numVertices">Number of vertices to draw.</param>
       <param name="indexData">The index data.</param>
-      <param name="indexOffset">Offset (in indices) from the beginning of the index buffer to the first index to use.</param>
+      <param name="indexOffset">Offset (in bytes) from the beginning of the index buffer to the first index to use.</param>
       <param name="primitiveCount">Number of primitives to render.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.DrawUserIndexedPrimitives``1(Microsoft.Xna.Framework.Graphics.PrimitiveType,``0[],System.Int32,System.Int32,System.Int16[],System.Int32,System.Int32,Microsoft.Xna.Framework.Graphics.VertexDeclaration)">
       <summary>Renders indexed primitives from a 16-bit index buffer, a vertex declaration, and other related input parameters.</summary>
       <param name="primitiveType">The primitive type.</param>
       <param name="vertexData">The vertex data.</param>
-      <param name="vertexOffset">Offset (in vertices) from the beginning of the vertex buffer to the first vertex to draw.</param>
+      <param name="vertexOffset">Offset (in bytes) from the beginning of the vertex buffer to the first vertex to draw.</param>
       <param name="numVertices">Number of vertices to draw.</param>
       <param name="indexData">The index data.</param>
-      <param name="indexOffset">Offset (in indices) from the beginning of the index buffer to the first index to use.</param>
+      <param name="indexOffset">Offset (in bytes) from the beginning of the index buffer to the first index to use.</param>
       <param name="primitiveCount">Number of primitives to render.</param>
       <param name="vertexDeclaration">The vertex declaration.</param>
     </member>
@@ -1375,20 +1241,20 @@
       <summary>Renders indexed primitives from a 32-bit index buffer and other related input parameters.</summary>
       <param name="primitiveType">The primitive type.</param>
       <param name="vertexData">The vertex data.</param>
-      <param name="vertexOffset">Offset (in vertices) from the beginning of the vertex buffer to the first vertex to draw.</param>
+      <param name="vertexOffset">Offset (in bytes) from the beginning of the vertex buffer to the first vertex to draw.</param>
       <param name="numVertices">Number of vertices to draw.</param>
       <param name="indexData">The index data.</param>
-      <param name="indexOffset">Offset (in indices) from the beginning of the index buffer to the first index to use.</param>
+      <param name="indexOffset">Offset (in bytes) from the beginning of the index buffer to the first index to use.</param>
       <param name="primitiveCount">Number of primitives to render.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.DrawUserIndexedPrimitives``1(Microsoft.Xna.Framework.Graphics.PrimitiveType,``0[],System.Int32,System.Int32,System.Int32[],System.Int32,System.Int32,Microsoft.Xna.Framework.Graphics.VertexDeclaration)">
       <summary>Renders indexed primitives from a 32-bit index buffer, a vertex declaration, and other related input parameters.</summary>
       <param name="primitiveType">The primitive type.</param>
       <param name="vertexData">The vertex data.</param>
-      <param name="vertexOffset">Offset (in vertices) from the beginning of the vertex buffer to the first vertex to draw.</param>
+      <param name="vertexOffset">Offset (in bytes) from the beginning of the vertex buffer to the first vertex to draw.</param>
       <param name="numVertices">Number of vertices to draw.</param>
       <param name="indexData">The index data.</param>
-      <param name="indexOffset">Offset (in indices) from the beginning of the index buffer to the first index to use.</param>
+      <param name="indexOffset">Offset (in bytes) from the beginning of the index buffer to the first index to use.</param>
       <param name="primitiveCount">Number of primitives to render.</param>
       <param name="vertexDeclaration">The vertex declaration.</param>
     </member>
@@ -1512,7 +1378,7 @@
     <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.SetVertexBuffer(Microsoft.Xna.Framework.Graphics.VertexBuffer,System.Int32)">
       <summary>Sets or binds a vertex buffer to the device.</summary>
       <param name="vertexBuffer">A vertex buffer.</param>
-      <param name="vertexOffset">The offset (in vertices) from the beginning of the buffer.</param>
+      <param name="vertexOffset">The offset (in bytes) from the beginning of the buffer.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.SetVertexBuffers(Microsoft.Xna.Framework.Graphics.VertexBufferBinding[])">
       <summary>Sets the vertex buffers.</summary>
@@ -1532,24 +1398,14 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsDeviceStatus">
       <summary>Describes the status of the device.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.GraphicsDeviceStatus.Lost">
-      <summary>The device has been lost.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.GraphicsDeviceStatus.Normal">
-      <summary>The device is normal.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.GraphicsDeviceStatus.NotReset">
-      <summary>The device has not been reset.</summary>
+      <param name="Lost">The device has been lost.</param>
+      <param name="Normal">The device is normal.</param>
+      <param name="NotReset">The device has not been reset.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsProfile">
       <summary>Identifies the set of supported devices for the game based on device capabilities.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.GraphicsProfile.HiDef">
-      <summary>Use the largest available set of graphic features and capabilities to target devices, such as an Xbox 360 console and a Windows-based computer, that have more enhanced graphic capabilities.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.GraphicsProfile.Reach">
-      <summary>Use a limited set of graphic features and capabilities, allowing the game to support the widest variety of devices, including all Windows-based computers and Windows Phone.</summary>
+      <param name="HiDef">Use the largest available set of graphic features and capabilities to target devices, such as an Xbox 360 console and a Windows-based computer, that have more enhanced graphic capabilities.</param>
+      <param name="Reach">Use a limited set of graphic features and capabilities, allowing the game to support the widest variety of devices, including all Windows-based computers and Windows Phone.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsResource">
       <summary>Queries and prepares resources.</summary>
@@ -1559,7 +1415,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsResource.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="E:Microsoft.Xna.Framework.Graphics.GraphicsResource.Disposing">
       <summary>Occurs when Dispose is called or when this object is finalized and collected by the garbage collector of the Microsoft .NET common language runtime.</summary>
@@ -1593,10 +1449,10 @@
       <summary>Enables or disables fog.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.IEffectFog.FogEnd">
-      <summary>Gets or sets maximum z value for fog.</summary>
+      <summary>Gets or sets the fog ending distance.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.IEffectFog.FogStart">
-      <summary>Gets or sets minimum z value for fog.</summary>
+      <summary>Gets or sets the fog ending distance.</summary>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.IEffectLights">
       <summary>Gets or sets lighting parameters for the current effect.</summary>
@@ -1675,7 +1531,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.IndexBuffer.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.IndexBuffer.GetData``1(System.Int32,``0[],System.Int32,System.Int32)">
       <summary>Gets a copy of the index buffer data, specifying the start index, starting offset, number of elements, and size of the elements.</summary>
@@ -1719,12 +1575,8 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.IndexElementSize">
       <summary>Defines the size of an element of an index buffer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.IndexElementSize.SixteenBits">
-      <summary>Sixteen bits.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.IndexElementSize.ThirtyTwoBits">
-      <summary>Thirty-two bits.</summary>
+      <param name="SixteenBits">Sixteen bits.</param>
+      <param name="ThirtyTwoBits">Thirty-two bits.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.IVertexType">
       <summary>Vertex type interface which is implemented by a custom vertex type structure.</summary>
@@ -1975,7 +1827,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.OcclusionQuery.Dispose(System.Boolean)">
       <summary>Releases the unmanaged resources used by Dispose and optionally releases the managed resources.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.OcclusionQuery.End">
       <summary>Ends the application of the query.</summary>
@@ -2030,33 +1882,17 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.PresentInterval">
       <summary>Defines flags that describe the relationship between the adapter refresh rate and the rate at which Present operations are completed.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PresentInterval.Default">
-      <summary>Equivalent to setting One.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PresentInterval.Immediate">
-      <summary>The runtime updates the window client area immediately, and might do so more than once during the adapter refresh period. Present operations might be affected immediately. This option is always available for both windowed and full-screen swap chains.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PresentInterval.One">
-      <summary>The driver waits for the vertical retrace period (the runtime will beam trace to prevent tearing). Present operations are not affected more frequently than the screen refresh rate; the runtime completes one Present operation per adapter refresh period, at most. This option is always available for both windowed and full-screen swap chains.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PresentInterval.Two">
-      <summary>The driver waits for the vertical retrace period. Present operations are not affected more frequently than every second screen refresh.</summary>
+      <param name="Default">Equivalent to setting One.</param>
+      <param name="One">The driver waits for the vertical retrace period (the runtime will beam trace to prevent tearing). Present operations are not affected more frequently than the screen refresh rate; the runtime completes one Present operation per adapter refresh period, at most. This option is always available for both windowed and full-screen swap chains.</param>
+      <param name="Two">The driver waits for the vertical retrace period. Present operations are not affected more frequently than every second screen refresh.</param>
+      <param name="Immediate">The runtime updates the window client area immediately, and might do so more than once during the adapter refresh period. Present operations might be affected immediately. This option is always available for both windowed and full-screen swap chains.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.PrimitiveType">
       <summary>Defines how vertex data is ordered.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PrimitiveType.LineList">
-      <summary>The data is ordered as a sequence of line segments; each line segment is described by two new vertices. The count may be any positive integer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PrimitiveType.LineStrip">
-      <summary>The data is ordered as a sequence of line segments; each line segment is described by one new vertex and the last vertex from the previous line seqment. The count may be any positive integer.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PrimitiveType.TriangleList">
-      <summary>The data is ordered as a sequence of triangles; each triangle is described by three new vertices. Back-face culling is affected by the current winding-order render state.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.PrimitiveType.TriangleStrip">
-      <summary>The data is ordered as a sequence of triangles; each triangle is described by two new vertices and one vertex from the previous triangle. The back-face culling flag is flipped automatically on even-numbered triangles.</summary>
+      <param name="TriangleList">The data is ordered as a sequence of triangles; each triangle is described by three new vertices. Back-face culling is affected by the current winding-order render state.</param>
+      <param name="TriangleStrip">The data is ordered as a sequence of triangles; each triangle is described by two new vertices and one vertex from the previous triangle. The back-face culling flag is flipped automatically on even-numbered triangles.</param>
+      <param name="LineList">The data is ordered as a sequence of line segments; each line segment is described by two new vertices. The count may be any positive integer.</param>
+      <param name="LineStrip">The data is ordered as a sequence of line segments; each line segment is described by one new vertex and the last vertex from the previous line seqment. The count may be any positive integer.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.RasterizerState">
       <summary>Contains rasterizer state, which determines how to convert vector data (shapes) into raster data (pixels).</summary>
@@ -2081,7 +1917,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.RasterizerState.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.RasterizerState.FillMode">
       <summary>The fill mode, which defines how a triangle is filled during rendering. The default is FillMode.Solid.</summary>
@@ -2197,15 +2033,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.RenderTargetUsage">
       <summary>Determines how render target data is used once a new render target is set.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.RenderTargetUsage.DiscardContents">
-      <summary>Always clears the render target data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.RenderTargetUsage.PlatformContents">
-      <summary>Either clears or keeps the data, depending on the current platform. On Xbox 360, the render target will discard contents. On PC, the render target will discard if multisampling is enabled, and preserve the contents if not.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.RenderTargetUsage.PreserveContents">
-      <summary>Always keeps the render target data.</summary>
+      <param name="DiscardContents">Always clears the render target data.</param>
+      <param name="PlatformContents">Either clears or keeps the data, depending on the current platform. On Xbox 360, the render target will discard contents. On PC, the render target will discard if multisampling is enabled, and preserve the contents if not.</param>
+      <param name="PreserveContents">Always keeps the render target data.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.ResourceCreatedEventArgs">
       <summary>Contains event data.</summary>
@@ -2245,7 +2075,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.SamplerState.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.SamplerState.Filter">
       <summary>Gets or sets the type of filtering during sampling.</summary>
@@ -2257,13 +2087,13 @@
       <summary>Contains default state for linear filtering and texture coordinate wrapping.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.SamplerState.MaxAnisotropy">
-      <summary>Gets or sets the maximum anisotropy. The default value is 4.</summary>
+      <summary>Gets or sets the maximum anisotropy. The default value is 0.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.SamplerState.MaxMipLevel">
       <summary>Gets or sets the level of detail (LOD) index of the largest map to use.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.SamplerState.MipMapLevelOfDetailBias">
-      <summary>Gets or sets the mipmap LOD bias. The default value is 0. A negative value indicates a larger mipmap level; a positive value indicates a smaller mipmap level.</summary>
+      <summary>Gets or sets the mipmap LOD bias. The default value is 0.</summary>
     </member>
     <member name="F:Microsoft.Xna.Framework.Graphics.SamplerState.PointClamp">
       <summary>Contains default state for point filtering and texture coordinate clamping.</summary>
@@ -2280,15 +2110,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.SetDataOptions">
       <summary>Describes whether existing vertex or index buffer data will be overwritten or discarded during a SetData operation.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SetDataOptions.Discard">
-      <summary>The SetData operation will discard the entire buffer. A pointer to a new memory area is returned so that the direct memory access (DMA) and rendering from the previous area do not stall.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SetDataOptions.None">
-      <summary>Portions of existing data in the buffer may be overwritten during this operation.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SetDataOptions.NoOverwrite">
-      <summary>The SetData operation will not overwrite existing data in the vertex and index buffers. Specifying this option allows the driver to return immediately from a SetData operation and continue rendering.</summary>
+      <param name="Discard">The SetData operation will discard the entire buffer. A pointer to a new memory area is returned so that the direct memory access (DMA) and rendering from the previous area do not stall.</param>
+      <param name="None">Portions of existing data in the buffer may be overwritten during this operation.</param>
+      <param name="NoOverwrite">The SetData operation will not overwrite existing data in the vertex and index buffers. Specifying this option allows the driver to return immediately from a SetData operation and continue rendering.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.SkinnedEffect">
       <summary>Contains a configurable effect for rendering skinned character models.</summary>
@@ -2335,10 +2159,10 @@
       <summary>Gets or sets the fog enable flag.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.SkinnedEffect.FogEnd">
-      <summary>Gets or sets the maximum z value for fog.</summary>
+      <summary>Gets or sets the maximum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.SkinnedEffect.FogStart">
-      <summary>Gets or sets the minimum z value for fog.</summary>
+      <summary>Gets or sets the minimum z value for fog, which ranges from 0 to 1.</summary>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.SkinnedEffect.GetBoneTransforms(System.Int32)">
       <summary>Gets the bone transform matrices for a SkinnedEffect.</summary>
@@ -2555,15 +2379,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.SpriteEffects">
       <summary>Defines sprite mirroring options.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteEffects.FlipHorizontally">
-      <summary>Rotate 180 degrees about the Y axis before rendering.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteEffects.FlipVertically">
-      <summary>Rotate 180 degrees about the X axis before rendering.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteEffects.None">
-      <summary>No rotations specified.</summary>
+      <param name="FlipHorizontally">Rotate 180 degrees about the Y axis before rendering.</param>
+      <param name="FlipVertically">Rotate 180 degrees about the X axis before rendering.</param>
+      <param name="None">No rotations specified.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.SpriteFont">
       <summary>Represents a font texture.</summary>
@@ -2590,111 +2408,45 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.SpriteSortMode">
       <summary>Defines sprite sort-rendering options.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteSortMode.BackToFront">
-      <summary>Same as Deferred mode, except sprites are sorted by depth in back-to-front order prior to drawing. This procedure is recommended when drawing transparent sprites of varying depths.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteSortMode.Deferred">
-      <summary>Sprites are not drawn until End is called. End will apply graphics device settings and draw all the sprites in one batch, in the same order calls to Draw were received. This mode allows Draw calls to two or more instances of SpriteBatch without introducing conflicting graphics device settings. SpriteBatch defaults to Deferred mode.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteSortMode.FrontToBack">
-      <summary>Same as Deferred mode, except sprites are sorted by depth in front-to-back order prior to drawing. This procedure is recommended when drawing opaque sprites of varying depths.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteSortMode.Immediate">
-      <summary>Begin will apply new graphics device settings, and sprites will be drawn within each Draw call. In Immediate mode there can only be one active SpriteBatch instance without introducing conflicting device settings.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SpriteSortMode.Texture">
-      <summary>Same as Deferred mode, except sprites are sorted by texture prior to drawing. This can improve performance when drawing non-overlapping sprites of uniform depth.</summary>
+      <param name="BackToFront">Same as Deferred mode, except sprites are sorted by depth in back-to-front order prior to drawing. This procedure is recommended when drawing transparent sprites of varying depths.</param>
+      <param name="Deferred">Sprites are not drawn until End is called. End will apply graphics device settings and draw all the sprites in one batch, in the same order calls to Draw were received. This mode allows Draw calls to two or more instances of SpriteBatch without introducing conflicting graphics device settings. SpriteBatch defaults to Deferred mode.</param>
+      <param name="FrontToBack">Same as Deferred mode, except sprites are sorted by depth in front-to-back order prior to drawing. This procedure is recommended when drawing opaque sprites of varying depths.</param>
+      <param name="Immediate">Begin will apply new graphics device settings, and sprites will be drawn within each Draw call. In Immediate mode there can only be one active SpriteBatch instance without introducing conflicting device settings.</param>
+      <param name="Texture">Same as Deferred mode, except sprites are sorted by texture prior to drawing. This can improve performance when drawing non-overlapping sprites of uniform depth.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.StencilOperation">
       <summary>Defines stencil buffer operations.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.Decrement">
-      <summary>Decrements the stencil-buffer entry, wrapping to the maximum value if the new value is less than 0.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.DecrementSaturation">
-      <summary>Decrements the stencil-buffer entry, clamping to 0.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.Increment">
-      <summary>Increments the stencil-buffer entry, wrapping to 0 if the new value exceeds the maximum value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.IncrementSaturation">
-      <summary>Increments the stencil-buffer entry, clamping to the maximum value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.Invert">
-      <summary>Inverts the bits in the stencil-buffer entry.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.Keep">
-      <summary>Does not update the stencil-buffer entry. This is the default value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.Replace">
-      <summary>Replaces the stencil-buffer entry with a reference value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.StencilOperation.Zero">
-      <summary>Sets the stencil-buffer entry to 0.</summary>
+      <param name="Decrement">Decrements the stencil-buffer entry, wrapping to the maximum value if the new value is less than 0.</param>
+      <param name="DecrementSaturation">Decrements the stencil-buffer entry, clamping to 0.</param>
+      <param name="Increment">Increments the stencil-buffer entry, wrapping to 0 if the new value exceeds the maximum value.</param>
+      <param name="IncrementSaturation">Increments the stencil-buffer entry, clamping to the maximum value.</param>
+      <param name="Invert">Inverts the bits in the stencil-buffer entry.</param>
+      <param name="Keep">Does not update the stencil-buffer entry. This is the default value.</param>
+      <param name="Replace">Replaces the stencil-buffer entry with a reference value.</param>
+      <param name="Zero">Sets the stencil-buffer entry to 0.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.SurfaceFormat">
       <summary>Defines various types of surface formats.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Alpha8">
-      <summary>(Unsigned format) 8-bit alpha only.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Bgr565">
-      <summary>(Unsigned format) 16-bit BGR pixel format with 5 bits for blue, 6 bits for green, and 5 bits for red.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Bgra4444">
-      <summary>(Unsigned format) 16-bit BGRA pixel format with 4 bits for each channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Bgra5551">
-      <summary>(Unsigned format) 16-bit BGRA pixel format where 5 bits are reserved for each color and 1 bit is reserved for alpha.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Color">
-      <summary>(Unsigned format) 32-bit ARGB pixel format with alpha, using 8 bits per channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Dxt1">
-      <summary>DXT1 compression texture format. The runtime will not allow an application to create a surface using a DXTn format unless the surface dimensions are multiples of 4. This applies to offscreen-plain surfaces, render targets, 2D textures, cube textures, and volume textures.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Dxt3">
-      <summary>DXT3 compression texture format. The runtime will not allow an application to create a surface using a DXTn format unless the surface dimensions are multiples of 4. This applies to offscreen-plain surfaces, render targets, 2D textures, cube textures, and volume textures.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Dxt5">
-      <summary>DXT5 compression texture format. The runtime will not allow an application to create a surface using a DXTn format unless the surface dimensions are multiples of 4. This applies to offscreen-plain surfaces, render targets, 2D textures, cube textures, and volume textures.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.HalfSingle">
-      <summary>(Floating-point format) 16-bit float format using 16 bits for the red channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.HalfVector2">
-      <summary>(Floating-point format) 32-bit float format using 16 bits for the red channel and 16 bits for the green channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.HalfVector4">
-      <summary>(Floating-point format) 64-bit float format using 16 bits for each channel (alpha, blue, green, red).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.HdrBlendable">
-      <summary>(Floating-point format) for high dynamic range data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.NormalizedByte2">
-      <summary>(Signed format) 16-bit bump-map format using 8 bits each for u and v data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.NormalizedByte4">
-      <summary>(Signed format) 32-bit bump-map format using 8 bits for each channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Rg32">
-      <summary>(Unsigned format) 32-bit pixel format using 16 bits each for red and green.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Rgba1010102">
-      <summary>(Unsigned format) 32-bit RGBA pixel format using 10 bits for each color and 2 bits for alpha.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Rgba64">
-      <summary>(Unsigned format) 64-bit RGBA pixel format using 16 bits for each component.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Single">
-      <summary>(IEEE format) 32-bit float format using 32 bits for the red channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Vector2">
-      <summary>(IEEE format) 64-bit float format using 32 bits for the red channel and 32 bits for the green channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Vector4">
-      <summary>(IEEE format) 128-bit float format using 32 bits for each channel (alpha, blue, green, red).</summary>
+      <param name="Color">(Unsigned format) 32-bit ARGB pixel format with alpha, using 8 bits per channel.</param>
+      <param name="Bgr565">(Unsigned format) 16-bit BGR pixel format with 5 bits for blue, 6 bits for green, and 5 bits for red.</param>
+      <param name="Bgra5551">(Unsigned format) 16-bit BGRA pixel format where 5 bits are reserved for each color and 1 bit is reserved for alpha.</param>
+      <param name="Bgra4444">(Unsigned format) 16-bit BGRA pixel format with 4 bits for each channel.</param>
+      <param name="Dxt1">DXT1 compression texture format. The runtime will not allow an application to create a surface using a DXTn format unless the surface dimensions are multiples of 4. This applies to offscreen-plain surfaces, render targets, 2D textures, cube textures, and volume textures.</param>
+      <param name="Dxt3">DXT3 compression texture format. The runtime will not allow an application to create a surface using a DXTn format unless the surface dimensions are multiples of 4. This applies to offscreen-plain surfaces, render targets, 2D textures, cube textures, and volume textures.</param>
+      <param name="Dxt5">DXT5 compression texture format. The runtime will not allow an application to create a surface using a DXTn format unless the surface dimensions are multiples of 4. This applies to offscreen-plain surfaces, render targets, 2D textures, cube textures, and volume textures.</param>
+      <param name="NormalizedByte2">(Signed format) 16-bit bump-map format using 8 bits each for u and v data.</param>
+      <param name="NormalizedByte4">(Signed format) 32-bit bump-map format using 8 bits for each channel.</param>
+      <param name="Rgba1010102">(Unsigned format) 32-bit RGBA pixel format using 10 bits for each color and 2 bits for alpha.</param>
+      <param name="Rg32">(Unsigned format) 32-bit pixel format using 16 bits each for red and green.</param>
+      <param name="Rgba64">(Unsigned format) 64-bit RGBA pixel format using 16 bits for each component.</param>
+      <param name="Alpha8">(Unsigned format) 8-bit alpha only.</param>
+      <param name="Single">(IEEE format) 32-bit float format using 32 bits for the red channel.</param>
+      <param name="Vector2">(IEEE format) 64-bit float format using 32 bits for the red channel and 32 bits for the green channel.</param>
+      <param name="Vector4">(IEEE format) 128-bit float format using 32 bits for each channel (alpha, blue, green, red).</param>
+      <param name="HalfSingle">(Floating-point format) 16-bit float format using 16 bits for the red channel.</param>
+      <param name="HalfVector2">(Floating-point format) 32-bit float format using 16 bits for the red channel and 16 bits for the green channel.</param>
+      <param name="HalfVector4">(Floating-point format) 64-bit float format using 16 bits for each channel (alpha, blue, green, red).</param>
+      <param name="HdrBlendable">(Floating-point format) for high dynamic range data.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.Texture">
       <summary>Represents a texture resource.</summary>
@@ -2739,7 +2491,7 @@
       <param name="zoom">Control the aspect ratio when zooming (scaling); set to false to maintain a constant aspect ratio, true otherwise. See remarks.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.Texture2D.GetData``1(System.Int32,System.Nullable{Microsoft.Xna.Framework.Rectangle},``0[],System.Int32,System.Int32)">
-      <summary>Gets a copy of 2D texture data, specifying a mipmap level, source rectangle, start index, and number of elements.  Reference page contains code sample.</summary>
+      <summary>Gets a copy of 2D texture data, specifying a mimap level, source rectangle, start index, and number of elements.  Reference page contains code sample.</summary>
       <param name="level">Mipmap level.</param>
       <param name="rect">The section of the texture to copy. null indicates the data will be copied from the entire texture.</param>
       <param name="data">Array of data.</param>
@@ -2861,15 +2613,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.TextureAddressMode">
       <summary>Defines modes for addressing texels using texture coordinates that are outside of the typical range of 0.0 to 1.0.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Clamp">
-      <summary>Texture coordinates outside the range [0.0, 1.0] are set to the texture color at 0.0 or 1.0, respectively.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Mirror">
-      <summary>Similar to Wrap, except that the texture is flipped at every integer junction. For u values between 0 and 1, for example, the texture is addressed normally; between 1 and 2, the texture is flipped (mirrored); between 2 and 3, the texture is normal again, and so on.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Wrap">
-      <summary>Tile the texture at every integer junction. For example, for u values between 0 and 3, the texture is repeated three times; no mirroring is performed.</summary>
+      <param name="Clamp">Texture coordinates outside the range [0.0, 1.0] are set to the texture color at 0.0 or 1.0, respectively.</param>
+      <param name="Mirror">Similar to Wrap, except that the texture is flipped at every integer junction. For u values between 0 and 1, for example, the texture is addressed normally; between 1 and 2, the texture is flipped (mirrored); between 2 and 3, the texture is normal again, and so on.</param>
+      <param name="Wrap">Tile the texture at every integer junction. For example, for u values between 0 and 3, the texture is repeated three times; no mirroring is performed.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.TextureCollection">
       <summary>Represents a collection of Texture objects.</summary>
@@ -2935,33 +2681,15 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.TextureFilter">
       <summary>Defines filtering types during texture sampling.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.Anisotropic">
-      <summary>Use anisotropic filtering.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.Linear">
-      <summary>Use linear filtering.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.LinearMipPoint">
-      <summary>Use linear filtering to shrink or expand, and point filtering between mipmap levels (mip).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.MinLinearMagPointMipLinear">
-      <summary>Use linear filtering to shrink, point filtering to expand, and linear filtering between mipmap levels.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.MinLinearMagPointMipPoint">
-      <summary>Use linear filtering to shrink, point filtering to expand, and point filtering between mipmap levels.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.MinPointMagLinearMipLinear">
-      <summary>Use point filtering to shrink, linear filtering to expand, and linear filtering between mipmap levels.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.MinPointMagLinearMipPoint">
-      <summary>Use point filtering to shrink, linear filtering to expand, and point filtering between mipmap levels.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.Point">
-      <summary>Use point filtering.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.TextureFilter.PointMipLinear">
-      <summary>Use point filtering to shrink (minify) or expand (magnify), and linear filtering between mipmap levels.</summary>
+      <param name="Linear">Use linear filtering.</param>
+      <param name="Point">Use point filtering.</param>
+      <param name="Anisotropic">Use anisotropic filtering.</param>
+      <param name="LinearMipPoint">Use linear filtering to shrink or expand, and point filtering between mipmap levels (mip).</param>
+      <param name="PointMipLinear">Use point filtering to shrink (minify) or expand (magnify), and linear filtering between mipmap levels.</param>
+      <param name="MinLinearMagPointMipLinear">Use linear filtering to shrink, point filtering to expand, and linear filtering between mipmap levels.</param>
+      <param name="MinLinearMagPointMipPoint">Use linear filtering to shrink, point filtering to expand, and point filtering between mipmap levels.</param>
+      <param name="MinPointMagLinearMipLinear">Use point filtering to shrink, linear filtering to expand, and linear filtering between mipmap levels.</param>
+      <param name="MinPointMagLinearMipPoint">Use point filtering to shrink, linear filtering to expand, and point filtering between mipmap levels.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.VertexBuffer">
       <summary>Represents a list of 3D vertices to be streamed to the graphics device.</summary>
@@ -2985,7 +2713,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.VertexBuffer.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.VertexBuffer.GetData``1(System.Int32,``0[],System.Int32,System.Int32,System.Int32)">
       <summary>Gets a copy of the vertex buffer data, specifying the starting offset, start index, number of elements, and vertex stride.</summary>
@@ -3039,12 +2767,12 @@
     <member name="M:Microsoft.Xna.Framework.Graphics.VertexBufferBinding.#ctor(Microsoft.Xna.Framework.Graphics.VertexBuffer,System.Int32)">
       <summary>Creates an instance of this object.</summary>
       <param name="vertexBuffer">The vertex buffer.</param>
-      <param name="vertexOffset">Offset (in vertices) from the beginning of the buffer to the first vertex to use.</param>
+      <param name="vertexOffset">Offset (in bytes) from the beginning of the buffer to the first vertex to use.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.VertexBufferBinding.#ctor(Microsoft.Xna.Framework.Graphics.VertexBuffer,System.Int32,System.Int32)">
       <summary>Creates an instance of this object.</summary>
       <param name="vertexBuffer">The vertex buffer.</param>
-      <param name="vertexOffset">Offset (in vertices) from the beginning of the buffer to the first vertex to use.</param>
+      <param name="vertexOffset">Offset (in bytes) from the beginning of the buffer to the first vertex to use.</param>
       <param name="instanceFrequency">Number (or frequency) of instances to draw for each draw call; 1 means draw one instance, 2 means draw 2 instances, etc. Use 0 if you are not instancing.</param>
     </member>
     <member name="P:Microsoft.Xna.Framework.Graphics.VertexBufferBinding.InstanceFrequency">
@@ -3070,7 +2798,7 @@
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.VertexDeclaration.Dispose(System.Boolean)">
       <summary>Immediately releases the unmanaged resources used by this object.</summary>
-      <param name="disposing">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+      <param name="">[MarshalAsAttribute(U1)] true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     </member>
     <member name="M:Microsoft.Xna.Framework.Graphics.VertexDeclaration.GetVertexElements">
       <summary>Gets the vertex shader declaration.</summary>
@@ -3122,84 +2850,34 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.VertexElementFormat">
       <summary>Defines vertex element formats.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Byte4">
-      <summary>Four-component, unsigned byte.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Color">
-      <summary>Four-component, packed, unsigned byte, mapped to 0 to 1 range. Input is in Int32 format (ARGB) expanded to (R, G, B, A).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.HalfVector2">
-      <summary>Two-component, 16-bit floating point expanded to (value, value, value, value). This type is valid for vertex shader version 2.0 or higher.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.HalfVector4">
-      <summary>Four-component, 16-bit floating-point expanded to (value, value, value, value). This type is valid for vertex shader version 2.0 or higher.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.NormalizedShort2">
-      <summary>Normalized, two-component, signed short, expanded to (first short/32767.0, second short/32767.0, 0, 1). This type is valid for vertex shader version 2.0 or higher.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.NormalizedShort4">
-      <summary>Normalized, four-component, signed short, expanded to (first short/32767.0, second short/32767.0, third short/32767.0, fourth short/32767.0). This type is valid for vertex shader version 2.0 or higher.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Short2">
-      <summary>Two-component, signed short expanded to (value, value, 0, 1).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Short4">
-      <summary>Four-component, signed short expanded to (value, value, value, value).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Single">
-      <summary>Single-component, 32-bit floating-point, expanded to (float, 0, 0, 1).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Vector2">
-      <summary>Two-component, 32-bit floating-point, expanded to (float, Float32 value, 0, 1).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Vector3">
-      <summary>Three-component, 32-bit floating point, expanded to (float, float, float, 1).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementFormat.Vector4">
-      <summary>Four-component, 32-bit floating point, expanded to (float, float, float, float).</summary>
+      <param name="Single">Single-component, 32-bit floating-point, expanded to (float, 0, 0, 1).</param>
+      <param name="Vector2">Two-component, 32-bit floating-point, expanded to (float, Float32 value, 0, 1).</param>
+      <param name="Vector3">Three-component, 32-bit floating point, expanded to (float, float, float, 1).</param>
+      <param name="Vector4">Four-component, 32-bit floating point, expanded to (float, float, float, float).</param>
+      <param name="HalfVector2">Two-component, 16-bit floating point expanded to (value, value, value, value). This type is valid for vertex shader version 2.0 or higher.</param>
+      <param name="HalfVector4">Four-component, 16-bit floating-point expanded to (value, value, value, value). This type is valid for vertex shader version 2.0 or higher.</param>
+      <param name="Color">Four-component, packed, unsigned byte, mapped to 0 to 1 range. Input is in Int32 format (ARGB) expanded to (R, G, B, A).</param>
+      <param name="NormalizedShort2">Normalized, two-component, signed short, expanded to (first short/32767.0, second short/32767.0, 0, 1). This type is valid for vertex shader version 2.0 or higher.</param>
+      <param name="NormalizedShort4">Normalized, four-component, signed short, expanded to (first short/32767.0, second short/32767.0, third short/32767.0, fourth short/32767.0). This type is valid for vertex shader version 2.0 or higher.</param>
+      <param name="Short2">Two-component, signed short expanded to (value, value, 0, 1).</param>
+      <param name="Short4">Four-component, signed short expanded to (value, value, value, value).</param>
+      <param name="Byte4">Four-component, unsigned byte.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.VertexElementUsage">
       <summary>Defines usage for vertex elements.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Binormal">
-      <summary>Vertex binormal data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.BlendIndices">
-      <summary>Blending indices data. (BlendIndices with UsageIndex = 0) specifies matrix indices for fixed-function vertex processing using indexed paletted skinning.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.BlendWeight">
-      <summary>Blending weight data. (BlendWeight with UsageIndex = 0) specifies the blend weights in fixed-function vertex processing.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Color">
-      <summary>Vertex data contains diffuse or specular color. (Color with UsageIndex = 0) specifies the diffuse color in the fixed-function vertex shader and in pixel shaders prior to ps_3_0. (Color with UsageIndex = 1) specifies the specular color in the fixed-function vertex shader and in pixel shaders prior to ps_3_0.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Depth">
-      <summary>Vertex data contains depth data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Fog">
-      <summary>Vertex data contains fog data. (Fog with UsageIndex = 0) specifies a fog blend value to use after pixel shading is finished. This flag applies to pixel shaders prior to version ps_3_0.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Normal">
-      <summary>Vertex normal data. (Normal with UsageIndex = 0) specifies vertex normals for fixed-function vertex processing and the N-patch tessellator. (Normal with UsageIndex = 1) specifies vertex normals for fixed-function vertex processing for skinning.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.PointSize">
-      <summary>Point size data. (PointSize with UsageIndex = 0) specifies the point-size attribute used by the setup engine of the rasterizer to expand a point into a quad for the point-sprite functionality.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Position">
-      <summary>Position data. (Position with UsageIndex = 0 ) specifies the nontransformed position in fixed-function vertex processing and the N-patch tessellator. (Position with UsageIndex = 1) specifies the nontransformed position in the fixed-function vertex shader for skinning.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Sample">
-      <summary>Vertex data contains sampler data. (Sample with UsageIndex = 0) specifies the displacement value to look up.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.Tangent">
-      <summary>Vertex tangent data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.TessellateFactor">
-      <summary>Single, positive floating-point value. (TessellateFactor with UsageIndex = 0) specifies a tessellation factor used in the tessellation unit to control the rate of tessellation.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Graphics.VertexElementUsage.TextureCoordinate">
-      <summary>Texture coordinate data. (TextureCoordinate, n) specifies texture coordinates in fixed-function vertex processing and in pixel shaders prior to ps_3_0. These coordinates can be used to pass user-defined data.</summary>
+      <param name="Binormal">Vertex binormal data.</param>
+      <param name="BlendIndices">Blending indices data. (BlendIndices with UsageIndex = 0) specifies matrix indices for fixed-function vertex processing using indexed paletted skinning.</param>
+      <param name="BlendWeight">Blending weight data. (BlendWeight with UsageIndex = 0) specifies the blend weights in fixed-function vertex processing.</param>
+      <param name="Color">Vertex data contains diffuse or specular color. (Color with UsageIndex = 0) specifies the diffuse color in the fixed-function vertex shader and in pixel shaders prior to ps_3_0. (Color with UsageIndex = 1) specifies the specular color in the fixed-function vertex shader and in pixel shaders prior to ps_3_0.</param>
+      <param name="Depth">Vertex data contains depth data.</param>
+      <param name="Fog">Vertex data contains fog data. (Fog with UsageIndex = 0) specifies a fog blend value to use after pixel shading is finished. This flag applies to pixel shaders prior to version ps_3_0.</param>
+      <param name="Normal">Vertex normal data. (Normal with UsageIndex = 0) specifies vertex normals for fixed-function vertex processing and the N-patch tessellator. (Normal with UsageIndex = 1) specifies vertex normals for fixed-function vertex processing for skinning.</param>
+      <param name="PointSize">Point size data. (PointSize with UsageIndex = 0) specifies the point-size attribute used by the setup engine of the rasterizer to expand a point into a quad for the point-sprite functionality.</param>
+      <param name="Position">Position data. (Position with UsageIndex = 0 ) specifies the nontransformed position in fixed-function vertex processing and the N-patch tessellator. (Position with UsageIndex = 1) specifies the nontransformed position in the fixed-function vertex shader for skinning.</param>
+      <param name="Sample">Vertex data contains sampler data. (Sample with UsageIndex = 0) specifies the displacement value to look up.</param>
+      <param name="Tangent">Vertex tangent data.</param>
+      <param name="TessellateFactor">Single, positive floating-point value. (TessellateFactor with UsageIndex = 0) specifies a tessellation factor used in the tessellation unit to control the rate of tessellation.</param>
+      <param name="TextureCoordinate">Texture coordinate data. (TextureCoordinate, n) specifies texture coordinates in fixed-function vertex processing and in pixel shaders prior to ps_3_0. These coordinates can be used to pass user-defined data.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Graphics.VertexPositionColor">
       <summary>Describes a custom vertex format structure that contains position and color information.</summary>

@@ -961,15 +961,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.ContainmentType">
       <summary>Indicates the extent to which bounding volumes intersect or contain one another.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.ContainmentType.Contains">
-      <summary>Indicates that one bounding volume completely contains the other.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.ContainmentType.Disjoint">
-      <summary>Indicates there is no overlap between the bounding volumes.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.ContainmentType.Intersects">
-      <summary>Indicates that the bounding volumes partially overlap.</summary>
+      <param name="Contains">Indicates that one bounding volume completely contains the other.</param>
+      <param name="Disjoint">Indicates there is no overlap between the bounding volumes.</param>
+      <param name="Intersects">Indicates that the bounding volumes partially overlap.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Curve">
       <summary>Stores an arbitrary collection of 2D CurveKey points, and provides methods for evaluating features of the curve they define.</summary>
@@ -1018,12 +1012,8 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.CurveContinuity">
       <summary>Defines the continuity of CurveKeys on a Curve.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveContinuity.Smooth">
-      <summary>Interpolation can be used between this CurveKey and the next.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveContinuity.Step">
-      <summary>Interpolation cannot be used between this CurveKey and the next. Specifying a position between the two points returns this point.</summary>
+      <param name="Smooth">Interpolation can be used between this CurveKey and the next.</param>
+      <param name="Step">Interpolation cannot be used between this CurveKey and the next. Specifying a position between the two points returns this point.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.CurveKey">
       <summary>Represents a point in a multi-point curve.</summary>
@@ -1146,51 +1136,27 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.CurveLoopType">
       <summary>Defines how the value of a Curve will be determined for positions before the first point on the Curve or after the last point on the Curve.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveLoopType.Constant">
-      <summary>The Curve will evaluate to its first key for positions before the first point in the Curve and to the last key for positions after the last point.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveLoopType.Cycle">
-      <summary>Positions specified past the ends of the curve will wrap around to the opposite side of the Curve.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveLoopType.CycleOffset">
-      <summary>Positions specified past the ends of the curve will wrap around to the opposite side of the Curve. The value will be offset by the difference between the values of the first and last CurveKey multiplied by the number of times the position wraps around. If the position is before the first point in the Curve, the difference will be subtracted from its value; otherwise, the difference will be added.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveLoopType.Linear">
-      <summary>Linear interpolation will be performed to determine the value.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveLoopType.Oscillate">
-      <summary>Positions specified past the ends of the Curve act as an offset from the same side of the Curve toward the opposite side.</summary>
+      <param name="Constant">The Curve will evaluate to its first key for positions before the first point in the Curve and to the last key for positions after the last point.</param>
+      <param name="Cycle">Positions specified past the ends of the curve will wrap around to the opposite side of the Curve.</param>
+      <param name="CycleOffset">Positions specified past the ends of the curve will wrap around to the opposite side of the Curve. The value will be offset by the difference between the values of the first and last CurveKey multiplied by the number of times the position wraps around. If the position is before the first point in the Curve, the difference will be subtracted from its value; otherwise, the difference will be added.</param>
+      <param name="Linear">Linear interpolation will be performed to determine the value.</param>
+      <param name="Oscillate">Positions specified past the ends of the Curve act as an offset from the same side of the Curve toward the opposite side.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.CurveTangent">
       <summary>Specifies different tangent types to be calculated for CurveKey points in a Curve.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveTangent.Flat">
-      <summary>A Flat tangent always has a value equal to zero.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveTangent.Linear">
-      <summary>A Linear tangent at a CurveKey is equal to the difference between its Value and the Value of the preceding or succeeding CurveKey. For example, in Curve MyCurve, where i is greater than zero and (i + 1) is less than the total number of CurveKeys in MyCurve, the linear TangentIn of MyCurve.Keys[i] is equal to: ( MyCurve.Keys[i].Value - MyCurve.Keys[i - 1].Value ) Similarly, the linear TangentOut is equal to: ( MyCurve.Keys[i + 1].Value - MyCurve.Keys[i].Value.)</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.CurveTangent.Smooth">
-      <summary>A Smooth tangent smooths the inflection between a TangentIn and TangentOut by taking into account the values of both neighbors of the CurveKey. The smooth TangentIn of MyCurve.Keys[i] is equal to: ( ( MyCurve.Keys[i + 1].Value - MyCurve.Keys[i - 1].Value ) * ( ( MyCurve.Keys[i].Position - MyCurve.Keys[i - 1].Position ) / ( MyCurve.Keys[i + 1].Position - MyCurve.Keys[i-1].Position ) ) ) Similarly, the smooth TangentOut is equal to: ( ( MyCurve.Keys[i + 1].Value - MyCurve.Keys[i - 1].Value ) * ( ( MyCurve.Keys[i + 1].Position - MyCurve.Keys[i].Position ) / ( MyCurve.Keys[i + 1].Position - MyCurve.Keys[i - 1].Position ) ) )</summary>
+      <param name="Flat">A Flat tangent always has a value equal to zero.</param>
+      <param name="Linear">A Linear tangent at a CurveKey is equal to the difference between its Value and the Value of the preceding or succeeding CurveKey. For example, in Curve MyCurve, where i is greater than zero and (i + 1) is less than the total number of CurveKeys in MyCurve, the linear TangentIn of MyCurve.Keys[i] is equal to: ( MyCurve.Keys[i].Value - MyCurve.Keys[i - 1].Value ) Similarly, the linear TangentOut is equal to: ( MyCurve.Keys[i + 1].Value - MyCurve.Keys[i].Value.)</param>
+      <param name="Smooth">A Smooth tangent smooths the inflection between a TangentIn and TangentOut by taking into account the values of both neighbors of the CurveKey. The smooth TangentIn of MyCurve.Keys[i] is equal to: ( ( MyCurve.Keys[i + 1].Value - MyCurve.Keys[i - 1].Value ) * ( ( MyCurve.Keys[i].Position - MyCurve.Keys[i - 1].Position ) / ( MyCurve.Keys[i + 1].Position - MyCurve.Keys[i-1].Position ) ) ) Similarly, the smooth TangentOut is equal to: ( ( MyCurve.Keys[i + 1].Value - MyCurve.Keys[i - 1].Value ) * ( ( MyCurve.Keys[i + 1].Position - MyCurve.Keys[i].Position ) / ( MyCurve.Keys[i + 1].Position - MyCurve.Keys[i - 1].Position ) ) )</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.DisplayOrientation">
       <summary>Defines the display orientation.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.DisplayOrientation.Default">
-      <summary>The default display orientation.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.DisplayOrientation.LandscapeLeft">
-      <summary>The display is rotated counterclockwise 90 degrees into a landscape orientation, where the width is greater than the height.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.DisplayOrientation.LandscapeRight">
-      <summary>The display is rotated clockwise 90 degrees into a landscape orientation, where the width is greater than the height.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.DisplayOrientation.Portrait">
-      <summary>The orientation is a portrait, where the height is greater than the width.</summary>
+      <param name="Default">The default display orientation.</param>
+      <param name="LandscapeLeft">The display is rotated counterclockwise 90 degrees into a landscape orientation, where the width is greater than the height.</param>
+      <param name="LandscapeRight">The display is rotated clockwise 90 degrees into a landscape orientation, where the width is greater than the height.</param>
+      <param name="Portrait">The orientation is a portrait, where the height is greater than the width.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.FrameworkDispatcher">
-      <summary>Processes XNA Framework event messages.</summary>
+      <summary>Implements the Windows-specific portion of a FrameworkDispatcher class.</summary>
     </member>
     <member name="M:Microsoft.Xna.Framework.FrameworkDispatcher.Update">
       <summary>Updates the status of various framework components (such as power state and media), and raises related events.</summary>
@@ -1985,30 +1951,16 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.PlaneIntersectionType">
       <summary>Describes the intersection between a plane and a bounding volume.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlaneIntersectionType.Back">
-      <summary>There is no intersection, and the bounding volume is in the negative half-space of the Plane.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlaneIntersectionType.Front">
-      <summary>There is no intersection, and the bounding volume is in the positive half-space of the Plane.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlaneIntersectionType.Intersecting">
-      <summary>The Plane is intersected.</summary>
+      <param name="Back">There is no intersection, and the bounding volume is in the negative half-space of the Plane.</param>
+      <param name="Front">There is no intersection, and the bounding volume is in the positive half-space of the Plane.</param>
+      <param name="Intersecting">The Plane is intersected.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.PlayerIndex">
       <summary>Specifies the game controller associated with a player.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlayerIndex.Four">
-      <summary>The fourth controller.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlayerIndex.One">
-      <summary>The first controller.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlayerIndex.Three">
-      <summary>The third controller.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.PlayerIndex.Two">
-      <summary>The second controller.</summary>
+      <param name="One">The first controller.</param>
+      <param name="Two">The second controller.</param>
+      <param name="Three">The third controller.</param>
+      <param name="Four">The fourth controller.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Point">
       <summary>Defines a point in 2D space.</summary>
@@ -3867,12 +3819,8 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Audio.AudioChannels">
       <summary>Defines the number of channels in the audio data.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.AudioChannels.Mono">
-      <summary>Indicates audio data is contained in one channel.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.AudioChannels.Stereo">
-      <summary>Indicates audio data contains two channels.</summary>
+      <param name="Mono">Indicates audio data is contained in one channel.</param>
+      <param name="Stereo">Indicates audio data contains two channels.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Audio.AudioEmitter">
       <summary> Reference page contains links to related code samples.</summary>
@@ -3953,7 +3901,7 @@
       <param name="count">Amount, in bytes, of data sent.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Audio.InstancePlayLimitException">
-      <summary>The exception that is thrown when there is an attempt to play more than the platform specific maximum SoundEffectInstance sounds concurrently. Reference page contains links to related conceptual articles.</summary>
+      <summary>The exception that is thrown when there is an attempt to play more than 16 SoundEffectInstance sounds concurrently.</summary>
     </member>
     <member name="M:Microsoft.Xna.Framework.Audio.InstancePlayLimitException.#ctor">
       <summary>Initializes a new instance of the InstancePlayLimitException class.</summary>
@@ -4021,12 +3969,8 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Audio.MicrophoneState">
       <summary>Current state of the Microphone audio capture (started or stopped).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.MicrophoneState.Started">
-      <summary>The Microphone audio capture has started.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.MicrophoneState.Stopped">
-      <summary>The Microphone audio capture has stopped.</summary>
+      <param name="Started">The Microphone audio capture has started.</param>
+      <param name="Stopped">The Microphone audio capture has stopped.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Audio.NoAudioHardwareException">
       <summary>The exception that is thrown when no audio hardware is present, or when audio hardware is installed, but the device drivers for the audio hardware are not present or enabled.</summary>
@@ -4188,15 +4132,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Audio.SoundState">
       <summary>Current state (playing, paused, or stopped) of a SoundEffectInstance.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.SoundState.Paused">
-      <summary>The SoundEffectInstance is paused.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.SoundState.Playing">
-      <summary>The SoundEffectInstance is playing.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Audio.SoundState.Stopped">
-      <summary>The SoundEffectInstance is stopped.</summary>
+      <param name="Paused">The SoundEffectInstance is paused.</param>
+      <param name="Playing">The SoundEffectInstance is playing.</param>
+      <param name="Stopped">The SoundEffectInstance is stopped.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Content.ContentLoadException">
       <summary>Exception used to report errors from the ContentManager.Load method.</summary>
@@ -5596,90 +5534,36 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.Buttons">
       <summary>Enumerates input device buttons.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.A">
-      <summary>A button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.B">
-      <summary>B button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.Back">
-      <summary>BACK button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.BigButton">
-      <summary>Big button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.DPadDown">
-      <summary>Directional pad up</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.DPadLeft">
-      <summary>Directional pad left</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.DPadRight">
-      <summary>Directional pad right</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.DPadUp">
-      <summary>Directional pad down</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftShoulder">
-      <summary>Left bumper (shoulder) button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftStick">
-      <summary>Left stick button (pressing the left stick)</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickDown">
-      <summary>Left stick is toward down</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickLeft">
-      <summary>Left stick is toward the left</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickRight">
-      <summary>Left stick is toward the right</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftThumbstickUp">
-      <summary>Left stick is toward up</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.LeftTrigger">
-      <summary>Left trigger</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightShoulder">
-      <summary>Right bumper (shoulder) button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightStick">
-      <summary>Right stick button (pressing the right stick)</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightThumbstickDown">
-      <summary>Right stick is toward down</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightThumbstickLeft">
-      <summary>Right stick is toward the left</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightThumbstickRight">
-      <summary>Right stick is toward the right</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightThumbstickUp">
-      <summary>Right stick is toward up</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.RightTrigger">
-      <summary>Right trigger</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.Start">
-      <summary>START button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.X">
-      <summary>X button</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Buttons.Y">
-      <summary>Y button</summary>
+      <param name="A">A button</param>
+      <param name="B">B button</param>
+      <param name="Back">BACK button</param>
+      <param name="BigButton">Big button</param>
+      <param name="DPadDown">Directional pad up</param>
+      <param name="DPadLeft">Directional pad left</param>
+      <param name="DPadRight">Directional pad right</param>
+      <param name="DPadUp">Directional pad down</param>
+      <param name="LeftShoulder">Left bumper (shoulder) button</param>
+      <param name="LeftStick">Left stick button (pressing the left stick)</param>
+      <param name="LeftThumbstickDown">Left stick is toward down</param>
+      <param name="LeftThumbstickLeft">Left stick is toward the left</param>
+      <param name="LeftThumbstickRight">Left stick is toward the right</param>
+      <param name="LeftThumbstickUp">Left stick is toward up</param>
+      <param name="LeftTrigger">Left trigger</param>
+      <param name="RightShoulder">Right bumper (shoulder) button</param>
+      <param name="RightStick">Right stick button (pressing the right stick)</param>
+      <param name="RightThumbstickDown">Right stick is toward down</param>
+      <param name="RightThumbstickLeft">Right stick is toward the left</param>
+      <param name="RightThumbstickRight">Right stick is toward the right</param>
+      <param name="RightThumbstickUp">Right stick is toward up</param>
+      <param name="RightTrigger">Right trigger</param>
+      <param name="Start">START button</param>
+      <param name="X">X button</param>
+      <param name="Y">Y button</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.ButtonState">
       <summary>Identifies the state of a controller button.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.ButtonState.Pressed">
-      <summary>The button is pressed.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.ButtonState.Released">
-      <summary>The button is released.</summary>
+      <param name="Pressed">The button is pressed.</param>
+      <param name="Released">The button is released.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.GamePad">
       <summary>Allows retrieval of user interaction with an Xbox 360 Controller and setting of controller vibration motors. Reference page contains links to related code samples.</summary>
@@ -5846,15 +5730,9 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.GamePadDeadZone">
       <summary>Specifies a type of dead zone processing to apply to Xbox 360 Controller analog sticks when calling GetState.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadDeadZone.Circular">
-      <summary>The combined X and Y position of each stick is compared to the dead zone. This provides better control than IndependentAxes when the stick is used as a two-dimensional control surface, such as when controlling a character's view in a first-person game.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadDeadZone.IndependentAxes">
-      <summary>The X and Y positions of each stick are compared against the dead zone independently. This setting is the default when calling GetState.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadDeadZone.None">
-      <summary>The values of each stick are not processed and are returned by GetState as "raw" values. This is best if you intend to implement your own dead zone processing.</summary>
+      <param name="Circular">The combined X and Y position of each stick is compared to the dead zone. This provides better control than IndependentAxes when the stick is used as a two-dimensional control surface, such as when controlling a character's view in a first-person game.</param>
+      <param name="IndependentAxes">The X and Y positions of each stick are compared against the dead zone independently. This setting is the default when calling GetState.</param>
+      <param name="None">The values of each stick are not processed and are returned by GetState as "raw" values. This is best if you intend to implement your own dead zone processing.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.GamePadDPad">
       <summary>Identifies which directions on the directional pad of an Xbox 360 Controller are being pressed.</summary>
@@ -6032,36 +5910,16 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.GamePadType">
       <summary>Describes the type of a specified Xbox 360 Controller.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.AlternateGuitar">
-      <summary>Controller is an alternate guitar</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.ArcadeStick">
-      <summary>Controller is an Arcade stick</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.BigButtonPad">
-      <summary>Controller is a big button pad</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.DancePad">
-      <summary>Controller is a dance pad</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.DrumKit">
-      <summary>Controller is a drum kit</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.FlightStick">
-      <summary>Controller is a flight stick</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.GamePad">
-      <summary>Controller is the Xbox 360 Controller</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.Guitar">
-      <summary>Controller is a guitar</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.Unknown">
-      <summary>Controller is an unknown type</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.GamePadType.Wheel">
-      <summary>Controller is a wheel</summary>
+      <param name="AlternateGuitar">Controller is an alternate guitar</param>
+      <param name="ArcadeStick">Controller is an Arcade stick</param>
+      <param name="BigButtonPad">Controller is a big button pad</param>
+      <param name="DancePad">Controller is a dance pad</param>
+      <param name="DrumKit">Controller is a drum kit</param>
+      <param name="FlightStick">Controller is a flight stick</param>
+      <param name="GamePad">Controller is the Xbox 360 Controller</param>
+      <param name="Guitar">Controller is a guitar</param>
+      <param name="Unknown">Controller is an unknown type</param>
+      <param name="Wheel">Controller is a wheel</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.Keyboard">
       <summary>Allows retrieval of keystrokes from a keyboard input device. Reference page contains links to related code samples.</summary>
@@ -6114,495 +5972,171 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.Keys">
       <summary>Identifies a particular key on a keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.A">
-      <summary>A key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Add">
-      <summary>Add key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Apps">
-      <summary>Applications key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Attn">
-      <summary>Attn key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.B">
-      <summary>B key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Back">
-      <summary>BACKSPACE key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserBack">
-      <summary>Windows 2000/XP: Browser Back key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserFavorites">
-      <summary>Windows 2000/XP: Browser Favorites key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserForward">
-      <summary>Windows 2000/XP: Browser Forward key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserHome">
-      <summary>Windows 2000/XP: Browser Start and Home key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserRefresh">
-      <summary>Windows 2000/XP: Browser Refresh key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserSearch">
-      <summary>Windows 2000/XP: Browser Search key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.BrowserStop">
-      <summary>Windows 2000/XP: Browser Stop key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.C">
-      <summary>C key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.CapsLock">
-      <summary>CAPS LOCK key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.ChatPadGreen">
-      <summary>Green ChatPad key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.ChatPadOrange">
-      <summary>Orange ChatPad key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Crsel">
-      <summary>CrSel key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D">
-      <summary>D key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D0">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D1">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D2">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D3">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D4">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D5">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D6">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D7">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D8">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.D9">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Decimal">
-      <summary>Decimal key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Delete">
-      <summary>DEL key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Divide">
-      <summary>Divide key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Down">
-      <summary>DOWN ARROW key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.E">
-      <summary>E key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.End">
-      <summary>END key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Enter">
-      <summary>ENTER key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.EraseEof">
-      <summary>Erase EOF key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Escape">
-      <summary>ESC key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Execute">
-      <summary>EXECUTE key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Exsel">
-      <summary>ExSel key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F">
-      <summary>F key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F1">
-      <summary>F1 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F10">
-      <summary>F10 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F11">
-      <summary>F11 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F12">
-      <summary>F12 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F13">
-      <summary>F13 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F14">
-      <summary>F14 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F15">
-      <summary>F15 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F16">
-      <summary>F16 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F17">
-      <summary>F17 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F18">
-      <summary>F18 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F19">
-      <summary>F19 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F2">
-      <summary>F2 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F20">
-      <summary>F20 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F21">
-      <summary>F21 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F22">
-      <summary>F22 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F23">
-      <summary>F23 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F24">
-      <summary>F24 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F3">
-      <summary>F3 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F4">
-      <summary>F4 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F5">
-      <summary>F5 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F6">
-      <summary>F6 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F7">
-      <summary>F7 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F8">
-      <summary>F8 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.F9">
-      <summary>F9 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.G">
-      <summary>G key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.H">
-      <summary>H key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Help">
-      <summary>HELP key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Home">
-      <summary>HOME key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.I">
-      <summary>I key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.ImeConvert">
-      <summary>IME Convert key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.ImeNoConvert">
-      <summary>IME NoConvert key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Insert">
-      <summary>INS key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.J">
-      <summary>J key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.K">
-      <summary>K key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Kana">
-      <summary>Kana key on Japanese keyboards</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Kanji">
-      <summary>Kanji key on Japanese keyboards</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.L">
-      <summary>L key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LaunchApplication1">
-      <summary>Windows 2000/XP: Start Application 1 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LaunchApplication2">
-      <summary>Windows 2000/XP: Start Application 2 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LaunchMail">
-      <summary>Windows 2000/XP: Start Mail key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Left">
-      <summary>LEFT ARROW key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LeftAlt">
-      <summary>Left ALT key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LeftControl">
-      <summary>Left CONTROL key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LeftShift">
-      <summary>Left SHIFT key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.LeftWindows">
-      <summary>Left Windows key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.M">
-      <summary>M key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.MediaNextTrack">
-      <summary>Windows 2000/XP: Next Track key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.MediaPlayPause">
-      <summary>Windows 2000/XP: Play/Pause Media key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.MediaPreviousTrack">
-      <summary>Windows 2000/XP: Previous Track key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.MediaStop">
-      <summary>Windows 2000/XP: Stop Media key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Multiply">
-      <summary>Multiply key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.N">
-      <summary>N key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.None">
-      <summary>Reserved</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumLock">
-      <summary>NUM LOCK key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad0">
-      <summary>Numeric keypad 0 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad1">
-      <summary>Numeric keypad 1 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad2">
-      <summary>Numeric keypad 2 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad3">
-      <summary>Numeric keypad 3 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad4">
-      <summary>Numeric keypad 4 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad5">
-      <summary>Numeric keypad 5 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad6">
-      <summary>Numeric keypad 6 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad7">
-      <summary>Numeric keypad 7 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad8">
-      <summary>Numeric keypad 8 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.NumPad9">
-      <summary>Numeric keypad 9 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.O">
-      <summary>O key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Oem8">
-      <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemAuto">
-      <summary>OEM Auto key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemBackslash">
-      <summary>Windows 2000/XP: The OEM angle bracket or backslash key on the RT 102 key keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemClear">
-      <summary>CLEAR key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemCloseBrackets">
-      <summary>Windows 2000/XP: The OEM close bracket key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemComma">
-      <summary>Windows 2000/XP: For any country/region, the ',' key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemCopy">
-      <summary>OEM Copy key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemEnlW">
-      <summary>OEM Enlarge Window key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemMinus">
-      <summary>Windows 2000/XP: For any country/region, the '-' key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemOpenBrackets">
-      <summary>Windows 2000/XP: The OEM open bracket key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemPeriod">
-      <summary>Windows 2000/XP: For any country/region, the '.' key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemPipe">
-      <summary>Windows 2000/XP: The OEM pipe key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemPlus">
-      <summary>Windows 2000/XP: For any country/region, the '+' key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemQuestion">
-      <summary>Windows 2000/XP: The OEM question mark key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemQuotes">
-      <summary>Windows 2000/XP: The OEM singled/double quote key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemSemicolon">
-      <summary>Windows 2000/XP: The OEM Semicolon key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.OemTilde">
-      <summary>Windows 2000/XP: The OEM tilde key on a US standard keyboard</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.P">
-      <summary>P key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Pa1">
-      <summary>PA1 key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.PageDown">
-      <summary>PAGE DOWN key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.PageUp">
-      <summary>PAGE UP key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Pause">
-      <summary>PAUSE key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Play">
-      <summary>Play key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Print">
-      <summary>PRINT key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.PrintScreen">
-      <summary>PRINT SCREEN key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.ProcessKey">
-      <summary>Windows 95/98/Me, Windows NT 4.0, Windows 2000/XP: IME PROCESS key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Q">
-      <summary>Q key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.R">
-      <summary>R key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Right">
-      <summary>RIGHT ARROW key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.RightAlt">
-      <summary>Right ALT key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.RightControl">
-      <summary>Right CONTROL key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.RightShift">
-      <summary>Right SHIFT key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.RightWindows">
-      <summary>Right Windows key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.S">
-      <summary>S key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Scroll">
-      <summary>SCROLL LOCK key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Select">
-      <summary>SELECT key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.SelectMedia">
-      <summary>Windows 2000/XP: Select Media key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Separator">
-      <summary>Separator key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Sleep">
-      <summary>Computer Sleep key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Space">
-      <summary>SPACEBAR</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Subtract">
-      <summary>Subtract key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.T">
-      <summary>T key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Tab">
-      <summary>TAB key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.U">
-      <summary>U key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Up">
-      <summary>UP ARROW key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.V">
-      <summary>V key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.VolumeDown">
-      <summary>Windows 2000/XP: Volume Down key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.VolumeMute">
-      <summary>Windows 2000/XP: Volume Mute key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.VolumeUp">
-      <summary>Windows 2000/XP: Volume Up key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.W">
-      <summary>W key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.X">
-      <summary>X key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Y">
-      <summary>Y key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Z">
-      <summary>Z key</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.Keys.Zoom">
-      <summary>Zoom key</summary>
+      <param name="A">A key</param>
+      <param name="Add">Add key</param>
+      <param name="Apps">Applications key</param>
+      <param name="Attn">Attn key</param>
+      <param name="B">B key</param>
+      <param name="Back">BACKSPACE key</param>
+      <param name="BrowserBack">Windows 2000/XP: Browser Back key</param>
+      <param name="BrowserFavorites">Windows 2000/XP: Browser Favorites key</param>
+      <param name="BrowserForward">Windows 2000/XP: Browser Forward key</param>
+      <param name="BrowserHome">Windows 2000/XP: Browser Start and Home key</param>
+      <param name="BrowserRefresh">Windows 2000/XP: Browser Refresh key</param>
+      <param name="BrowserSearch">Windows 2000/XP: Browser Search key</param>
+      <param name="BrowserStop">Windows 2000/XP: Browser Stop key</param>
+      <param name="C">C key</param>
+      <param name="CapsLock">CAPS LOCK key</param>
+      <param name="ChatPadGreen">Green ChatPad key</param>
+      <param name="ChatPadOrange">Orange ChatPad key</param>
+      <param name="Crsel">CrSel key</param>
+      <param name="D">D key</param>
+      <param name="D0">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D1">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D2">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D3">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D4">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D5">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D6">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D7">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D8">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="D9">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="Decimal">Decimal key</param>
+      <param name="Delete">DEL key</param>
+      <param name="Divide">Divide key</param>
+      <param name="Down">DOWN ARROW key</param>
+      <param name="E">E key</param>
+      <param name="End">END key</param>
+      <param name="Enter">ENTER key</param>
+      <param name="EraseEof">Erase EOF key</param>
+      <param name="Escape">ESC key</param>
+      <param name="Execute">EXECUTE key</param>
+      <param name="Exsel">ExSel key</param>
+      <param name="F">F key</param>
+      <param name="F1">F1 key</param>
+      <param name="F10">F10 key</param>
+      <param name="F11">F11 key</param>
+      <param name="F12">F12 key</param>
+      <param name="F13">F13 key</param>
+      <param name="F14">F14 key</param>
+      <param name="F15">F15 key</param>
+      <param name="F16">F16 key</param>
+      <param name="F17">F17 key</param>
+      <param name="F18">F18 key</param>
+      <param name="F19">F19 key</param>
+      <param name="F2">F2 key</param>
+      <param name="F20">F20 key</param>
+      <param name="F21">F21 key</param>
+      <param name="F22">F22 key</param>
+      <param name="F23">F23 key</param>
+      <param name="F24">F24 key</param>
+      <param name="F3">F3 key</param>
+      <param name="F4">F4 key</param>
+      <param name="F5">F5 key</param>
+      <param name="F6">F6 key</param>
+      <param name="F7">F7 key</param>
+      <param name="F8">F8 key</param>
+      <param name="F9">F9 key</param>
+      <param name="G">G key</param>
+      <param name="H">H key</param>
+      <param name="Help">HELP key</param>
+      <param name="Home">HOME key</param>
+      <param name="I">I key</param>
+      <param name="ImeConvert">IME Convert key</param>
+      <param name="ImeNoConvert">IME NoConvert key</param>
+      <param name="Insert">INS key</param>
+      <param name="J">J key</param>
+      <param name="K">K key</param>
+      <param name="Kana">Kana key on Japanese keyboards</param>
+      <param name="Kanji">Kanji key on Japanese keyboards</param>
+      <param name="L">L key</param>
+      <param name="LaunchApplication1">Windows 2000/XP: Start Application 1 key</param>
+      <param name="LaunchApplication2">Windows 2000/XP: Start Application 2 key</param>
+      <param name="LaunchMail">Windows 2000/XP: Start Mail key</param>
+      <param name="Left">LEFT ARROW key</param>
+      <param name="LeftAlt">Left ALT key</param>
+      <param name="LeftControl">Left CONTROL key</param>
+      <param name="LeftShift">Left SHIFT key</param>
+      <param name="LeftWindows">Left Windows key</param>
+      <param name="M">M key</param>
+      <param name="MediaNextTrack">Windows 2000/XP: Next Track key</param>
+      <param name="MediaPlayPause">Windows 2000/XP: Play/Pause Media key</param>
+      <param name="MediaPreviousTrack">Windows 2000/XP: Previous Track key</param>
+      <param name="MediaStop">Windows 2000/XP: Stop Media key</param>
+      <param name="Multiply">Multiply key</param>
+      <param name="N">N key</param>
+      <param name="None">Reserved</param>
+      <param name="NumLock">NUM LOCK key</param>
+      <param name="NumPad0">Numeric keypad 0 key</param>
+      <param name="NumPad1">Numeric keypad 1 key</param>
+      <param name="NumPad2">Numeric keypad 2 key</param>
+      <param name="NumPad3">Numeric keypad 3 key</param>
+      <param name="NumPad4">Numeric keypad 4 key</param>
+      <param name="NumPad5">Numeric keypad 5 key</param>
+      <param name="NumPad6">Numeric keypad 6 key</param>
+      <param name="NumPad7">Numeric keypad 7 key</param>
+      <param name="NumPad8">Numeric keypad 8 key</param>
+      <param name="NumPad9">Numeric keypad 9 key</param>
+      <param name="O">O key</param>
+      <param name="Oem8">Used for miscellaneous characters; it can vary by keyboard.</param>
+      <param name="OemAuto">OEM Auto key</param>
+      <param name="OemBackslash">Windows 2000/XP: The OEM angle bracket or backslash key on the RT 102 key keyboard</param>
+      <param name="OemClear">CLEAR key</param>
+      <param name="OemCloseBrackets">Windows 2000/XP: The OEM close bracket key on a US standard keyboard</param>
+      <param name="OemComma">Windows 2000/XP: For any country/region, the ',' key</param>
+      <param name="OemCopy">OEM Copy key</param>
+      <param name="OemEnlW">OEM Enlarge Window key</param>
+      <param name="OemMinus">Windows 2000/XP: For any country/region, the '-' key</param>
+      <param name="OemOpenBrackets">Windows 2000/XP: The OEM open bracket key on a US standard keyboard</param>
+      <param name="OemPeriod">Windows 2000/XP: For any country/region, the '.' key</param>
+      <param name="OemPipe">Windows 2000/XP: The OEM pipe key on a US standard keyboard</param>
+      <param name="OemPlus">Windows 2000/XP: For any country/region, the '+' key</param>
+      <param name="OemQuestion">Windows 2000/XP: The OEM question mark key on a US standard keyboard</param>
+      <param name="OemQuotes">Windows 2000/XP: The OEM singled/double quote key on a US standard keyboard</param>
+      <param name="OemSemicolon">Windows 2000/XP: The OEM Semicolon key on a US standard keyboard</param>
+      <param name="OemTilde">Windows 2000/XP: The OEM tilde key on a US standard keyboard</param>
+      <param name="P">P key</param>
+      <param name="Pa1">PA1 key</param>
+      <param name="PageDown">PAGE DOWN key</param>
+      <param name="PageUp">PAGE UP key</param>
+      <param name="Pause">PAUSE key</param>
+      <param name="Play">Play key</param>
+      <param name="Print">PRINT key</param>
+      <param name="PrintScreen">PRINT SCREEN key</param>
+      <param name="ProcessKey">Windows 95/98/Me, Windows NT 4.0, Windows 2000/XP: IME PROCESS key</param>
+      <param name="Q">Q key</param>
+      <param name="R">R key</param>
+      <param name="Right">RIGHT ARROW key</param>
+      <param name="RightAlt">Right ALT key</param>
+      <param name="RightControl">Right CONTROL key</param>
+      <param name="RightShift">Right SHIFT key</param>
+      <param name="RightWindows">Right Windows key</param>
+      <param name="S">S key</param>
+      <param name="Scroll">SCROLL LOCK key</param>
+      <param name="Select">SELECT key</param>
+      <param name="SelectMedia">Windows 2000/XP: Select Media key</param>
+      <param name="Separator">Separator key</param>
+      <param name="Sleep">Computer Sleep key</param>
+      <param name="Space">SPACEBAR</param>
+      <param name="Subtract">Subtract key</param>
+      <param name="T">T key</param>
+      <param name="Tab">TAB key</param>
+      <param name="U">U key</param>
+      <param name="Up">UP ARROW key</param>
+      <param name="V">V key</param>
+      <param name="VolumeDown">Windows 2000/XP: Volume Down key</param>
+      <param name="VolumeMute">Windows 2000/XP: Volume Mute key</param>
+      <param name="VolumeUp">Windows 2000/XP: Volume Up key</param>
+      <param name="W">W key</param>
+      <param name="X">X key</param>
+      <param name="Y">Y key</param>
+      <param name="Z">Z key</param>
+      <param name="Zoom">Zoom key</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.KeyState">
       <summary>Identifies the state of a keyboard key.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.KeyState.Down">
-      <summary>Key is pressed.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Input.KeyState.Up">
-      <summary>Key is released.</summary>
+      <param name="Down">Key is pressed.</param>
+      <param name="Up">Key is released.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Input.Mouse">
       <summary>Allows retrieval of position and button clicks from a mouse input device. Reference page contains links to related code samples.</summary>
@@ -7043,24 +6577,14 @@
     </member>
     <member name="T:Microsoft.Xna.Framework.Media.MediaSourceType">
       <summary>Type of the media source.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Media.MediaSourceType.LocalDevice">
-      <summary>A local device.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Media.MediaSourceType.WindowsMediaConnect">
-      <summary>A Windows Media Connect device.</summary>
+      <param name="LocalDevice">A local device.</param>
+      <param name="WindowsMediaConnect">A Windows Media Connect device.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Media.MediaState">
       <summary>Media playback state (playing, paused, or stopped).</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Media.MediaState.Paused">
-      <summary>Media playback is paused.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Media.MediaState.Playing">
-      <summary>Media is currently playing.</summary>
-    </member>
-    <member name="F:Microsoft.Xna.Framework.Media.MediaState.Stopped">
-      <summary>Media playback is stopped.</summary>
+      <param name="Paused">Media playback is paused.</param>
+      <param name="Playing">Media is currently playing.</param>
+      <param name="Stopped">Media playback is stopped.</param>
     </member>
     <member name="T:Microsoft.Xna.Framework.Media.Picture">
       <summary>Provides access to a picture in the media library.</summary>

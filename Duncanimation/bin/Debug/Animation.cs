@@ -39,6 +39,11 @@ namespace Duncanimation
         {
             get { return speed; }
         }
+        public float Speed
+        {
+            get { return speed; }
+            set { speed = value; }
+        }
         #endregion
 
         public Animation(string name, int startFrame, int frames, float speed, bool looping)

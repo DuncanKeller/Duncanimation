@@ -30,7 +30,14 @@ namespace Duncanimation
 
         public string CurrentAnimation
         {
-            get { return currentAnimation.Name; }
+            get
+            {
+                if (currentAnimation != null) { return currentAnimation.Name; }
+                else
+                {
+                    return String.Empty;
+                }
+            }
         }
 
         public Animator(Texture2D spriteSheet, int rows, int columns)
@@ -52,11 +59,23 @@ namespace Duncanimation
             animations.Add(name, anim);
         }
 
+
+
+        public void SetSpeed(float s)
+        {
+            currentAnimation.Speed = s;
+        }
+        public void Reset()
+        {
+            currentFrame = currentAnimation.LoopFromFrame;
+        }
+
         public void Update(float deltaTime)
         {
             if (currentAnimation != null && playing)
             {
-                if (currentFrame >= currentAnimation.StartingFrame + currentAnimation.NumberOfFrames)
+                if (currentFrame >= currentAnimation.StartingFrame + currentAnimation.NumberOfFrames &&
+                    currentAnimation.Speed > 0)
                 {
                     if (currentAnimation.Looping)
                     {
@@ -68,12 +87,29 @@ namespace Duncanimation
                         Stop();
                     }
                 }
+                else if (currentFrame <= currentAnimation.StartingFrame && currentAnimation.Speed < 0)
+                {
+                    if (currentAnimation.Looping)
+                    {
+                        currentFrame = currentAnimation.StartingFrame + currentAnimation.NumberOfFrames - 1;
+                    }
+                    else
+                    {
+                        currentFrame = currentAnimation.StartingFrame;
+                        Stop();
+                    }
+                }
 
                 timer += (deltaTime / 1000) * currentAnimation.FramesPerSecond;
                 if (timer > 1)
                 {
                     timer = 0;
                     currentFrame++;
+                }
+                else if (timer < 0)
+                {
+                    timer = 1;
+                    currentFrame--;
                 }
             }
         }
@@ -90,9 +126,12 @@ namespace Duncanimation
 
         public void Play(string anim)
         {
-            currentAnimation = animations[anim];
-            currentFrame = animations[anim].StartingFrame;
-            Play();
+            if (CurrentAnimation != anim)
+            {
+                currentAnimation = animations[anim];
+                currentFrame = animations[anim].StartingFrame;
+                Play();
+            }
         }
 
         public void Draw(SpriteBatch sb, Rectangle dest, Color c, float rotation, Vector2 origin, SpriteEffects effect)
